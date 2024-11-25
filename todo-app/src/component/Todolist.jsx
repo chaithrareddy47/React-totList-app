@@ -36,7 +36,6 @@
 // };
 
 // export default Todolist;
-
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import AddTodo from "./AddTodo";
@@ -79,13 +78,16 @@ const Todolist = () => {
       <ul>
         {taskList.length > 0 ? (
           taskList.map((item) => (
-            <DeleteTodo
-              key={item.id}
-              taskId={item.id}
-              task={item.task} // Display the task text
-              taskList={taskList}
-              setTaskList={setTaskList}
-            />
+            <>
+              {/* <div>{item.title}</div> */}
+              <DeleteTodo
+                key={item.id}
+                taskId={item.id}
+                task={item.title} // Display the task text
+                taskList={taskList}
+                setTaskList={setTaskList}
+              />
+            </>
           ))
         ) : (
           <p>No tasks available.</p> // Show message when no tasks are available
@@ -96,4 +98,3 @@ const Todolist = () => {
 };
 
 export default Todolist;
-
